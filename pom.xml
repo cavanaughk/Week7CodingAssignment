@@ -1,0 +1,60 @@
+<!-- 
+  Cavanaugh Keys
+  Backend Software Development
+  Week 7 Coding Assignment
+
+  This file's configuration settings allows Maven to build projects (and provide project dependencies).
+  This file defines what Maven calls the Project Object Model (POM).
+
+  In this file a property is added with the correct Java version. Then, a MySQL driver is added as a project 
+  dependency. Then, a plugin is added that will use the Java version property to set the correct Java version.
+ -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.promineotech</groupId>
+	<artifactId>mysql-java</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	
+	<!-- 
+	Add the Java version as a property in the Maven POM. The Java version was set to 21, which is the
+	 the Java compiler version I have installed.
+	 -->
+	<properties>
+		<java.version>21</java.version>
+	</properties>
+	
+	
+	<!-- 
+	I added the MySQL driver as a dependency.
+	 -->
+	<dependencies>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.28</version>
+		</dependency>
+	</dependencies>
+
+	
+	<!-- 
+	I added a section to the POM that tells Eclipse which compiler version to use when compiling the project.
+	 -->
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.1</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
