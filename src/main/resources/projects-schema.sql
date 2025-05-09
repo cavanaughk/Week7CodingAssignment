@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS project_category;
 DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS project;
 
+
 CREATE TABLE project (
 	project_id int NOT NULL AUTO_INCREMENT,
 	project_name varchar(128) NOT NULL,
@@ -20,6 +21,7 @@ CREATE TABLE category (
 	category_name varchar(128) NOT NULL,
 	PRIMARY KEY (category_id)
 );
+
 
 CREATE TABLE project_category (
 	project_id int NOT NULL,
